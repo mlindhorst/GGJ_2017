@@ -13,7 +13,7 @@ public class UserControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.UpArrow) && transform.position.y < 30)
+		if(Input.GetKey(KeyCode.UpArrow) && transform.position.y < 15)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + movementSpeed, transform.position.z);
         }
