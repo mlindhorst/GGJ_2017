@@ -18,5 +18,6 @@ public class WaveCollisionHandler : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         transform.position = new Vector2(transform.position.x, transform.position.y - collision.gameObject.transform.lossyScale.y);
+        Destroy(collision.gameObject.GetComponent<Collider2D>());
     }
 }

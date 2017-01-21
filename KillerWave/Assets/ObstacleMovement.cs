@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour {
-    public int scrollSpeed;
+    public float scrollSpeed;
     public static ObstacleMovement instance;
     // Use this for initialization
     void Start () {
         instance = this;
-        scrollSpeed = 2;
+        scrollSpeed = DistanceCounter.instance.obstacleSendSpeed;
 
 	}
 	

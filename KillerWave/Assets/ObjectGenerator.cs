@@ -29,6 +29,7 @@ public class ObjectGenerator : MonoBehaviour {
         GameObject newObstacle = Instantiate(objectToSummon, new Vector2(750, Random.Range(floor, ceiling)), new Quaternion());
         newObstacle.AddComponent<ObstacleMovement>();
         var renderer = newObstacle.GetComponent<SpriteRenderer>();
+        newObstacle.tag = "Obstacle";
         renderer.sortingOrder = 2;
 
         readyForObstacle = true;

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TileImage : MonoBehaviour {
+    public static TileImage instance;
     public float scrollSpeed;
-    public int width;
-    public int height;
+    public float width;
+    public float height;
 
     private Vector3 backPos;
     private float X;
@@ -15,6 +16,7 @@ public class TileImage : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        instance = this;
     }
 	
 	// Update is called once per frame
