@@ -4,32 +4,34 @@ using UnityEngine;
 
 public class TileImage : MonoBehaviour {
     public float scrollSpeed;
-    public float tileSizeY;
-    
+    public int width;
+    public int height;
 
-    private Vector2 savedOffset;
-    private Vector3 startPosition;
-    private Material oceanMaterial;
-    
+    private Vector3 backPos;
+    private float X;
+    private float Y;
+
 
     // Use this for initialization
-    void Start () {
-        startPosition = transform.position;
-        oceanMaterial = GetComponent<SpriteRenderer>().material;
-        savedOffset = oceanMaterial.GetTextureOffset("_MainTex");
+    void Start ()
+    {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        float x = Mathf.Repeat(Time.time * scrollSpeed, tileSizeY * 4);
-        x = x / tileSizeY;
-        x = Mathf.Floor(x);
-        x = x / 4;
-        Vector2 offset = new Vector2(x, savedOffset.y);
-        oceanMaterial.SetTextureOffset("_MainTex", offset);
-        float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeY);
-        var movementAmount = Vector3.left * newPosition;
-        transform.position = startPosition + movementAmount;        
-        
+	void Update ()
+    {
+        transform.position = transform.position + Vector3.left * scrollSpeed;
+    }
+
+    void OnBecameInvisible()
+    {
+        //calculate current position
+        backPos = gameObject.transform.position;
+        //calculate new position
+        print(backPos);
+        X = backPos.x + width * 2;
+        Y = backPos.y + height * 2;
+        //move to new position when invisible
+        gameObject.transform.position = new Vector3(X, Y, gameObject.transform.position.z);
     }
 }
