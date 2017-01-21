@@ -5,9 +5,11 @@ using UnityEngine;
 public class UserControl : MonoBehaviour {
 
     public float movementSpeed;
+    private DropPowerManager _dropPowerManager;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        _dropPowerManager = GetComponent<DropPowerManager>();
 		
 	}
 	
@@ -17,6 +19,12 @@ public class UserControl : MonoBehaviour {
         {
             transform.position = 
                 new Vector3(transform.position.x, transform.position.y + movementSpeed, transform.position.z);
+        }
+        else if( Input.GetKey( KeyCode.Space) && transform.position.y > -230)
+        {
+            transform.position =
+                new Vector3(transform.position.x, transform.position.y - 30, transform.position.z);
+            _dropPowerManager.UsePowerUp();
         }
 	}
 }

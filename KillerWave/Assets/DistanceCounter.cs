@@ -6,34 +6,32 @@ using UnityEngine.UI;
 public class DistanceCounter : MonoBehaviour {
     public Text distanceText;
 
-    private int totalDistance;
+    public static DistanceCounter instance;
+    private static float totalDistance;
+    private static int totalDistanceInt;
     private bool readyToMove;
-
+    
     // Use this for initialization
     void Start () {
+        instance = this;
         totalDistance = 0;
         distanceText.text = CurrentDistanceText;
         readyToMove = true;
     }
-	
-    IEnumerator WaitForDistance()
+    void FixedUpdate()
     {
-        readyToMove = false;
-        yield return new WaitForSeconds(.2f);
+        IncrementDistance(ObstacleMovement.instance.scrollSpeed);
+    }
+    public void IncrementDistance(int speed)
+    {
+        totalDistance += speed;
+        totalDistanceInt = (int) totalDistance / 10;
         distanceText.text = CurrentDistanceText;
-        readyToMove = true;
     }
 
-	// Update is called once per frame
-	void Update () {
-        if (readyToMove)
-        {
-            StartCoroutine(WaitForDistance());
-        }
-    }
 
     string CurrentDistanceText
     {
-        get { return "Distance: " + totalDistance++; }
+        get { return "Distance: " + totalDistanceInt; }
     }
 }

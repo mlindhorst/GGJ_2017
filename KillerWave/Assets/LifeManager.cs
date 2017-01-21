@@ -12,7 +12,7 @@ public class LifeManager : MonoBehaviour {
     public void AddLife()
     {
         var separation = 30 * _currentLifeIcons.Count;
-        var position = new Vector2(UPPERLEFT_X + separation, 132);
+        var position = new Vector2(UPPERLEFT_X + separation, UPPERLEFT_Y);
         var newLife = Instantiate(LifeIcon, position, new Quaternion());
         var renderer = newLife.GetComponent<SpriteRenderer>();
 
