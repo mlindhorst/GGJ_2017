@@ -5,10 +5,12 @@ using UnityEngine;
 public class TileImage : MonoBehaviour {
     public float scrollSpeed;
     public float tileSizeY;
+    
 
     private Vector2 savedOffset;
     private Vector3 startPosition;
     private Material oceanMaterial;
+    
 
     // Use this for initialization
     void Start () {
@@ -26,6 +28,8 @@ public class TileImage : MonoBehaviour {
         Vector2 offset = new Vector2(x, savedOffset.y);
         oceanMaterial.SetTextureOffset("_MainTex", offset);
         float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeY);
-        transform.position = startPosition + Vector3.left * newPosition;
+        var movementAmount = Vector3.left * newPosition;
+        transform.position = startPosition + movementAmount;        
+        
     }
 }
