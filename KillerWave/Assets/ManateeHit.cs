@@ -20,6 +20,7 @@ public class ManateeHit : MonoBehaviour {
     {
         print("You got hit");
         _lifeManager.LoseLife();
+        GetComponent<Animator>().Play("ManateeHit");
         if(!_lifeManager.IsAlive)
         {
             SceneManager.LoadScene("Menu");
