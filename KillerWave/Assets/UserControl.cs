@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UserControl : MonoBehaviour {
 
+    public float PowerBarAmmount = 20;
     public float movementSpeed;
     private DropPowerManager _dropPowerManager;
 
@@ -15,8 +16,10 @@ public class UserControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if( Input.GetKey( KeyCode.UpArrow ) && transform.position.y < -90)
+        
+		if( Input.GetKey( KeyCode.UpArrow ) && transform.position.y < -90 && PowerBarAmmount > 0)
         {
+            PowerBarAmmount--;
             transform.position = 
                 new Vector3(transform.position.x, transform.position.y + movementSpeed, transform.position.z);
         }
@@ -26,5 +29,7 @@ public class UserControl : MonoBehaviour {
                 new Vector3(transform.position.x, transform.position.y - 30, transform.position.z);
             _dropPowerManager.UsePowerUp();
         }
-	}
+        if(PowerBarAmmount<20 && !Input.GetKey(KeyCode.UpArrow))
+            PowerBarAmmount += .2f;
+    }
 }
