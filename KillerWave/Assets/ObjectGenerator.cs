@@ -25,7 +25,7 @@ public class ObjectGenerator : MonoBehaviour {
         GameObject newObstacle = Instantiate(objectToSummon, new Vector2(750, Random.Range(floor, ceiling)), new Quaternion());
         newObstacle.AddComponent<ObstacleMovement>();
         var renderer = newObstacle.GetComponent<SpriteRenderer>();
-        renderer.sortingOrder = 1;
+        renderer.sortingOrder = 23;
 
         readyForObstacle = true;
     }
