@@ -7,15 +7,18 @@ public class ObjectGenerator : MonoBehaviour {
     public List<GameObject> GroundObstacles;
     public List<GameObject> SkyObstacles;
     public List<GameObject> Clouds;
+    public List<GameObject> Islands;
     public List<GameObject> PowerUps;
 
     private bool readyForObstacle = true;
     private bool readyForClouds = true;
+    private bool readyForIslands = true;
     private static float SKY_MAX_Y = 147;
     private static float SKY_MIN_Y = 15;
     private static float GROUND_MAX_Y = -90;
     private static float GROUND_MIN_Y = -180;
     private int _currentClouds = 0;
+    private int _currentIslands = 0;
 
     // Use this for initialization
     void Start () {
@@ -51,12 +54,32 @@ public class ObjectGenerator : MonoBehaviour {
             readyForClouds = true;
         }
     }
-	// Update is called once per frame
-	void Update()
+    IEnumerator CalculateAndSendIslands()
+    {
+        readyForIslands = false;
+        _currentIslands = GameObject.FindGameObjectsWithTag("Island").ToList().Count;
+        yield return new WaitForSeconds(15);
+        if (_currentIslands < 3)
+        {
+            var randomIndex = Random.Range(0, Islands.Count);
+            var objectToSummon = Islands[randomIndex];
+            GameObject newObstacle = Instantiate(objectToSummon, new Vector2(750, Random.Range(GROUND_MIN_Y, GROUND_MAX_Y)), new Quaternion());
+            newObstacle.AddComponent<ObstacleMovement>();
+            var renderer = newObstacle.GetComponent<SpriteRenderer>();
+            renderer.sortingOrder = 0;
+            readyForIslands = true;
+        }
+    }
+    // Update is called once per frame
+    void Update()
     {
         if (readyForClouds)
         {
             StartCoroutine(CalculateAndSendClouds());
+        }
+        if (readyForIslands)
+        {
+            StartCoroutine(CalculateAndSendIslands());
         }
         if (readyForObstacle)
         {
@@ -73,7 +96,7 @@ public class ObjectGenerator : MonoBehaviour {
             }
             else
             {
-                var generatePowerUp = Random.Range(0, 5);
+                var generatePowerUp = Random.Range(0, 4);
                 if (generatePowerUp < 1)
                 {
                     var powerUpRandomIndex = Random.Range(0, PowerUps.Count);
@@ -89,7 +112,7 @@ public class ObjectGenerator : MonoBehaviour {
                     ceiling = GROUND_MAX_Y;
                 }
             }
-            StartCoroutine(WaitForObstacle(Random.Range(2, 5), objectToSummon, floor, ceiling));
+            StartCoroutine(WaitForObstacle(Random.Range(1, 3), objectToSummon, floor, ceiling));
         }
 	}
 }
