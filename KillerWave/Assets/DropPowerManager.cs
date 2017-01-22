@@ -9,11 +9,12 @@ public class DropPowerManager : MonoBehaviour {
 
     public void AddPowerUp()
     {
-        var separation = 30 * _currentDropPowerIcon.Count;
-        var position = new Vector2(-280 + separation, 112);
-        var newLife = Instantiate(dropPowerIcon, position, new Quaternion());
+        if (_currentDropPowerIcon.Count == 3) return;
+        var separation = 20 * _currentDropPowerIcon.Count;
+        var position = new Vector2(-285 , 85 - separation);
+        var newLife = Instantiate(dropPowerIcon, position, new Quaternion());       
         var renderer = newLife.GetComponent<SpriteRenderer>();
-
+        
         renderer.sortingOrder = 1;
         _currentDropPowerIcon.Push(newLife);
     }
@@ -29,10 +30,13 @@ public class DropPowerManager : MonoBehaviour {
         _currentDropPowerIcon = new Stack<GameObject>();
     }
 
+    public bool PowerUpsLeft
+    {
+        get { return _currentDropPowerIcon.Count > 0; }
+    }
     // Use this for initialization
     void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

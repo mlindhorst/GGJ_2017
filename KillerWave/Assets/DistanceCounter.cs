@@ -8,8 +8,8 @@ public class DistanceCounter : MonoBehaviour {
     public Text distanceText;
 
     public static DistanceCounter instance;
-    private static float totalDistance;
-    private static int totalDistanceInt;
+    public static float totalDistance;
+    public static int totalDistanceInt;
     private bool readyToMove;
     public float obstacleSendSpeed = 1.5f;
     

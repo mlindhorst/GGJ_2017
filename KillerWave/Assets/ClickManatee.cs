@@ -20,7 +20,6 @@ public class ClickManatee : MonoBehaviour {
 	}
     void OnMouseEnter()
     {
-        print("enter");
         mouseInsideButton = true;
     }
     void OnMouseExit ()
