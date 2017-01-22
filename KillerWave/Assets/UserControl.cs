@@ -17,6 +17,7 @@ public class UserControl : MonoBehaviour {
     void Start () {
         _dropPowerManager = GetComponent<DropPowerManager>();
         _dropPowerManager.AddPowerUp();
+        _dropPowerManager.AddPowerUp();
     }
 	
 	// Update is called once per frame
@@ -30,7 +31,7 @@ public class UserControl : MonoBehaviour {
         else if( Input.GetKeyDown( KeyCode.Space) && transform.position.y > -250 && _dropPowerManager.PowerUpsLeft)
         {
             transform.position =
-                new Vector3(transform.position.x, transform.position.y - 30, transform.position.z);
+                new Vector3(transform.position.x, transform.position.y - 50, transform.position.z);
             _dropPowerManager.UsePowerUp();
         }
         if (PowerBarAmmount < 24 && !Input.GetKey(KeyCode.UpArrow))

@@ -6,9 +6,12 @@ public class WaveCollisionHandler : MonoBehaviour {
     public GameObject SplashObject;
     private PolygonCollider2D _collider;
     private GameObject _wave;
+    public AudioClip ObstacleSound;
+    private AudioSource aSource;
     // Use this for initialization
     void Start () {
         _collider = GetComponent<PolygonCollider2D>();
+        aSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +24,9 @@ public class WaveCollisionHandler : MonoBehaviour {
         if (collision.gameObject.GetComponent<ObstacleMovement>().HasBeenHit) return;
 
         if (collision.gameObject.tag != "Obstacle") return;
+
+        aSource.clip = ObstacleSound;
+        aSource.Play();
         transform.position = new Vector2(transform.position.x, transform.position.y - collision.gameObject.transform.lossyScale.y);
         collision.gameObject.GetComponent<ObstacleMovement>().HasBeenHit = true;
         Vector2 spashPosition = new Vector2(collision.transform.position.x - collision.gameObject.GetComponent<SpriteRenderer>().bounds.size.x/2, collision.transform.position.y);
