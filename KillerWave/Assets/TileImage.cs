@@ -30,7 +30,6 @@ public class TileImage : MonoBehaviour {
         //calculate current position
         backPos = gameObject.transform.position;
         //calculate new position
-        print(backPos);
         X = backPos.x + width * 2;
         Y = backPos.y + height * 2;
         //move to new position when invisible

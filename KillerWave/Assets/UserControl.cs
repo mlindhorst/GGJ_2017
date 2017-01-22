@@ -16,19 +16,18 @@ public class UserControl : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _dropPowerManager = GetComponent<DropPowerManager>();
-        
-	}
+        _dropPowerManager.AddPowerUp();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        
 		if( Input.GetKey( KeyCode.UpArrow ) && transform.position.y < -90 && PowerBarAmmount > 0)
         {
             PowerBarAmmount = PowerBarAmmount - .5f; ;
             transform.position = 
                 new Vector3(transform.position.x, transform.position.y + movementSpeed, transform.position.z);
         }
-        else if( Input.GetKey( KeyCode.Space) && transform.position.y > -230)
+        else if( Input.GetKeyDown( KeyCode.Space) && transform.position.y > -250 && _dropPowerManager.PowerUpsLeft)
         {
             transform.position =
                 new Vector3(transform.position.x, transform.position.y - 30, transform.position.z);

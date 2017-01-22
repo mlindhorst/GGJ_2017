@@ -11,6 +11,7 @@ public class LifeManager : MonoBehaviour {
     private static int UPPERLEFT_Y = 132;
     public void AddLife()
     {
+        if (_currentLifeIcons.Count == 3) return;
         var separation = 30 * _currentLifeIcons.Count;
         var position = new Vector2(UPPERLEFT_X + separation, UPPERLEFT_Y);
         var newLife = Instantiate(LifeIcon, position, new Quaternion());

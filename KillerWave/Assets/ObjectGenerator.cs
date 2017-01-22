@@ -7,6 +7,7 @@ public class ObjectGenerator : MonoBehaviour {
     public List<GameObject> GroundObstacles;
     public List<GameObject> SkyObstacles;
     public List<GameObject> Clouds;
+    public List<GameObject> PowerUps;
 
     private bool readyForObstacle = true;
     private bool readyForClouds = true;
@@ -72,13 +73,22 @@ public class ObjectGenerator : MonoBehaviour {
             }
             else
             {
-                var randomIndex = Random.Range(0, GroundObstacles.Count);
-                objectToSummon = GroundObstacles[randomIndex];
-                floor = GROUND_MIN_Y;
-                ceiling = GROUND_MAX_Y;
+                var generatePowerUp = Random.Range(0, 5);
+                if (generatePowerUp < 1)
+                {
+                    var powerUpRandomIndex = Random.Range(0, PowerUps.Count);
+                    objectToSummon = PowerUps[powerUpRandomIndex];
+                    floor = SKY_MIN_Y;
+                    ceiling = -100;
+                }
+                else
+                {
+                    var randomIndex = Random.Range(0, GroundObstacles.Count);
+                    objectToSummon = GroundObstacles[randomIndex];
+                    floor = GROUND_MIN_Y;
+                    ceiling = GROUND_MAX_Y;
+                }
             }
-
-
             StartCoroutine(WaitForObstacle(Random.Range(2, 5), objectToSummon, floor, ceiling));
         }
 	}
