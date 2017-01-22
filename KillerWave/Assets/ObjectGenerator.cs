@@ -112,7 +112,7 @@ public class ObjectGenerator : MonoBehaviour {
                     ceiling = GROUND_MAX_Y;
                 }
             }
-            StartCoroutine(WaitForObstacle(Random.Range(2, 5), objectToSummon, floor, ceiling));
+            StartCoroutine(WaitForObstacle(Random.Range(1, 3), objectToSummon, floor, ceiling));
         }
 	}
 }

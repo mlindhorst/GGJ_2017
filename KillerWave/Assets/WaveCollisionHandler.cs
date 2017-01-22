@@ -21,9 +21,12 @@ public class WaveCollisionHandler : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<ObstacleMovement>().HasBeenHit) return;
 
         if (collision.gameObject.tag != "Obstacle") return;
+
+        if (collision.gameObject.GetComponent<ObstacleMovement>().HasBeenHit) return;
+
+        
 
         aSource.clip = ObstacleSound;
         aSource.Play();
