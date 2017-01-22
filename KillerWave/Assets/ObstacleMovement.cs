@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstacleMovement : MonoBehaviour {
     public float scrollSpeed;
     public static ObstacleMovement instance;
+    public bool HasBeenHit { get; set; }
     // Use this for initialization
     void Start () {
         instance = this;

@@ -18,7 +18,7 @@ public class ManateeHit : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D coll)
     {
-        print("You got hit");
+        if (coll.gameObject.tag != "Obstacle") return;
         _lifeManager.LoseLife();
         GetComponent<Animator>().Play("ManateeHit");
         if(!_lifeManager.IsAlive)
