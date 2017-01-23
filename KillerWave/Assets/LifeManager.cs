@@ -8,7 +8,7 @@ public class LifeManager : MonoBehaviour {
     private Stack<GameObject> _currentLifeIcons;
 
     private static int UPPERLEFT_X = -280;
-    private static int UPPERLEFT_Y = 132;
+    private static int UPPERLEFT_Y = 162;
     public void AddLife()
     {
         if (_currentLifeIcons.Count == 3) return;

@@ -11,7 +11,7 @@ public class DropPowerManager : MonoBehaviour {
     {
         if (_currentDropPowerIcon.Count == 3) return;
         var separation = 20 * _currentDropPowerIcon.Count;
-        var position = new Vector2(-285 , 85 - separation);
+        var position = new Vector2(-285 , 105 - separation);
         var newLife = Instantiate(dropPowerIcon, position, new Quaternion());       
         var renderer = newLife.GetComponent<SpriteRenderer>();
         

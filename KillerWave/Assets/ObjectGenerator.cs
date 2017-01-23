@@ -15,8 +15,8 @@ public class ObjectGenerator : MonoBehaviour {
     private bool readyForIslands = true;
     private static float SKY_MAX_Y = 147;
     private static float SKY_MIN_Y = 15;
-    private static float GROUND_MAX_Y = -90;
-    private static float GROUND_MIN_Y = -180;
+    private static float GROUND_MAX_Y = -120;
+    private static float GROUND_MIN_Y = -210;
     private int _currentClouds = 0;
     private int _currentIslands = 0;
 
@@ -63,7 +63,7 @@ public class ObjectGenerator : MonoBehaviour {
         {
             var randomIndex = Random.Range(0, Islands.Count);
             var objectToSummon = Islands[randomIndex];
-            GameObject newObstacle = Instantiate(objectToSummon, new Vector2(750, Random.Range(GROUND_MIN_Y, GROUND_MAX_Y)), new Quaternion());
+            GameObject newObstacle = Instantiate(objectToSummon, new Vector2(750, Random.Range(GROUND_MIN_Y+40, GROUND_MAX_Y+20)), new Quaternion());
             newObstacle.AddComponent<ObstacleMovement>();
             var renderer = newObstacle.GetComponent<SpriteRenderer>();
             renderer.sortingOrder = 0;
@@ -102,7 +102,7 @@ public class ObjectGenerator : MonoBehaviour {
                     var powerUpRandomIndex = Random.Range(0, PowerUps.Count);
                     objectToSummon = PowerUps[powerUpRandomIndex];
                     floor = SKY_MIN_Y;
-                    ceiling = -100;
+                    ceiling = -130;
                 }
                 else
                 {

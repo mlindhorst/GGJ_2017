@@ -1,0 +1,43 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 8950 (ID=0x6640)
+    Vendor:   ATI
+    VRAM:     2025 MB
+    Driver:   15.200.1062.1003
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.294 seconds
+Platform assembly: C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\sarah_ripley\Documents\GitHub\GGJ_2017\KillerWave\KillerWave_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 200.956955 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.690092 ms
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 510.
+Total: 44.030407 ms (FindLiveObjects: 0.051314 ms CreateObjectMapping: 0.036286 ms MarkObjects: 43.885624 ms  DeleteObjects: 0.056079 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 11.446894 ms
+
+Unloading 165 unused Assets to reduce memory usage. Loaded Objects now: 316.
+Total: 5.165946 ms (FindLiveObjects: 0.059745 ms CreateObjectMapping: 0.039219 ms MarkObjects: 0.363602 ms  DeleteObjects: 4.702279 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2204 -> priority: 1 
+  Thread -> id: 2208 -> priority: 1 
